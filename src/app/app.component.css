@@ -22,6 +22,14 @@
     float: right;
     padding-bottom: 30px;
   }
+  td{
+    color: whitesmoke;
+  }
+
+  .active:hover
+  {
+      background-color: #a6a6a6;
+  }
 
   svg#rocket-smoke {
     height: calc(100vh - 95px);
@@ -37,7 +45,12 @@
   .badge:hover{
     background-color: #eb4034;
   }
- 
+ #show{
+   color: black;
+   text-align: block;
+   font-size: 25px;
+   font-family: ;
+ }
 
 
   

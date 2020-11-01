@@ -79,13 +79,13 @@
 
     <div class="col">
         <div class ='container mt-5'>
-          <div *ngIf="!selectedHero">
+          <div *ngIf="!selectedHero" >
             <img src="../assets/avtar.png" alt="Avatar" class="avatar">
             <h3 class="conatiner mt-5" ><span class="badge badge-secondary">Contact Management</span></h3>
             <h4><small></small></h4> 
-            <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
+            <!-- <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
               <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
-            </svg>
+            </svg> -->
             </div>
           <!--<table *ngIf="selectedHero">
             <tr>
@@ -113,16 +113,16 @@
                 <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-4.jpg" alt="Avatar" class="avatar">
     
                 <div class="mt-4">   
-                  <h4><small><label>Name :</label></small></h4><span>{{selectedHero.Name}}</span>
+                  <h4><small><b><label>Name</label></b></small></h4><span id="show">{{selectedHero.Name}}</span>
                 </div>
                 <div class="mt-2">
-                  <h4><small><label>Phone :</label></small></h4><span>{{selectedHero.Phone}}</span>
+                  <h4><small><b><label>Phone</label> </b></small></h4><span id="show">{{selectedHero.Phone}}</span>
                 </div>
                 <div class="mt-2">
-                  <h4><small><label>Email :</label></small></h4><span>{{selectedHero.Email}}</span>
+                  <h4><small><b><label>Email</label></b></small></h4><span id="show">{{selectedHero.Email}}</span>
                 </div>
                 <div class="mt-2">
-                  <h4><small><label>Notes :</label></small></h4><span>{{selectedHero.Notes}}</span>
+                  <h4><small><b><label>Notes</label></b></small></h4><span id="show">{{selectedHero.Notes}}</span>
                 </div>
                 <button *ngIf="!showSave" class="btn btn-primary btn-toolbar mt-3" id="edit"  (click)="editDomain()">Edit</button>
               </div>

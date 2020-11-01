@@ -1,0 +1,194 @@
+<!--
+  <li *ngFor="let users of Users">
+    <h2>{{users.name}}</h2>
+  </li>
+-->
+<!--
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Name</th>
+            <th>Code</th>
+          </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let users of Users">
+          <td>{{ users.name }}</td>
+          <td>{{ users.code }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+-->
+  
+<div class="container">
+  <!---->
+  <div class="row">
+    <div class="col">
+      <div class="container mt-5">
+        
+        
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="term">
+        </div>
+        
+        
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let users of Users |filter:term" [class.selected]="users === selectedHero" [class.active]="i == HighlightRow"
+             (mouseout)="showSave=false"
+            (click)="onSelect(users)">
+              <td>{{users.Name}}</td>
+              <td>{{users.Phone}}</td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <!--
+        <mat-table [dataSource]="dataSource">
+
+          
+          <ng-container matColumnDef="Phone">
+            <th mat-header-cell *matHeaderCellDef> Phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.Phone}} </td>
+          </ng-container>
+        
+          
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </mat-table>-->
+
+
+
+      </div>
+    </div>
+
+
+    <div class="col">
+        <div class ='container mt-5'>
+          <div *ngIf="!selectedHero">
+            <img src="../assets/avtar.png" alt="Avatar" class="avatar">
+            <h3 class="conatiner mt-5" ><span class="badge badge-secondary">Contact Management</span></h3>
+            <h4><small></small></h4> 
+            <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
+              <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
+            </svg>
+            </div>
+          <!--<table *ngIf="selectedHero">
+            <tr>
+              <th>Name</th>
+              <th>Code</th>
+            </tr>
+            <tr *ngIf="selectedHero; index as index">
+               <td>
+                <span *ngIf="!showSave">{{selectedHero.Name}}</span>
+                <input *ngIf="showSave" type="text" class="form-control" [(ngModel)]="selectedHero.Name" required/>
+               </td>
+               <td>
+                <span *ngIf="!showSave">{{selectedHero.Phone}}</span>
+                <input *ngIf="showSave" type="text" class="form-control" [(ngModel)]="selectedHero.Phone"required/>
+               </td>
+               <td><button *ngIf="!showSave" class="btn btn-primary"  (click)="editDomain()">Edit</button></td>
+               <td><button *ngIf="showSave"class="btn btn-success"  (click)="saveContact(selectedHero)">Save</button></td>
+               <td> <button *ngIf="showSave"class="btn btn-danger" (click) = "deleteRow(selectedHero)">Delete</button></td>
+               
+            </tr>
+          </table>-->
+          <div *ngIf="selectedHero">
+            <div>
+              <div  *ngIf="!showSave" >
+                <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-4.jpg" alt="Avatar" class="avatar">
+    
+                <div class="mt-4">   
+                  <h4><small><label>Name :</label></small></h4><span>{{selectedHero.Name}}</span>
+                </div>
+                <div class="mt-2">
+                  <h4><small><label>Phone :</label></small></h4><span>{{selectedHero.Phone}}</span>
+                </div>
+                <div class="mt-2">
+                  <h4><small><label>Email :</label></small></h4><span>{{selectedHero.Email}}</span>
+                </div>
+                <div class="mt-2">
+                  <h4><small><label>Notes :</label></small></h4><span>{{selectedHero.Notes}}</span>
+                </div>
+                <button *ngIf="!showSave" class="btn btn-primary btn-toolbar mt-3" id="edit"  (click)="editDomain()">Edit</button>
+              </div>
+              <div *ngIf="showSave">
+                <!--<form>
+                  <div>
+                    <label for="Name">Name</label>
+                    <input type="text" class="form-control" id="Name" placeholder="Name" [(ngModel)]="selectedHero.Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="Phone">Phone</label>
+                    <input type="text" class="form-control" id="Phone" placeholder="Phone"  [(ngModel)]="selectedHero.Phone" >
+                  </div>
+                  <button class="btn btn-success"  (click)="saveContact(selectedHero)">Save</button>
+                  <button class="btn btn-danger" (click) = "deleteRow(selectedHero)">Delete</button>
+                </form>
+              -->
+                <div>
+                  <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-4.jpg" alt="Avatar" class="avatar">
+                </div>
+                <div class="mt-2">
+                  <label for="Name"><strong><em>Name</em></strong></label>
+                  <input *ngIf="showSave" type="text" class="form-control" [(ngModel)]="selectedHero.Name" required/>
+                </div>
+                <div>
+                  <label for="Phone"><strong><em>Phone</em></strong></label>
+                  <input *ngIf="showSave" type="text" class="form-control" [(ngModel)]="selectedHero.Phone" required/>
+                </div>
+                <div>
+                  <label for="Email"><strong><em>Email</em></strong></label>
+                  <input *ngIf="showSave" type="text" class="form-control" [(ngModel)]="selectedHero.Email" required/>
+                </div>
+                <div>
+                  <label for="Notes"><strong><em>Note</em></strong></label>
+                  <input *ngIf="showSave" type="text" class="form-control" [(ngModel)]="selectedHero.Notes" required/>
+                </div>
+                <div>
+                  <button *ngIf="showSave"class="btn btn-success btn-toolbar mt-3"  (click)="saveContact(selectedHero)">Save</button>
+                </div>
+                <!--<button *ngIf="showSave"class="btn btn-danger btn-toolbar" (click) = "deleteRow(selectedHero)">Delete</button>-->
+                
+              </div>
+            </div>
+              
+
+          </div>
+          <!--
+          <div *ngIf="selectedHero">
+          <input type="text" class="form-control" [(ngModel)]="selectedHero.Name" required/>
+          <button class="btn btn-primary" [disabled]="isVisible" (click)="editDomain();  isVisible=true;">Edit</button> 
+        </div>-->
+      </div>
+          <!--<td> <button (click) = "deleteRow(i)"><i class="fa fa-trash"></i></button></td>-->
+          <!--
+          <label *ngIf="selectedHero">name:
+            <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+          </label>
+        -->
+
+        <!--
+        <button class="btn btn-success">Edit</button>
+        <button class="btn btn-success">delete</button>
+        <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-4.jpg" alt="Avatar" class="avatar">-->
+    </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
